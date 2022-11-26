@@ -10,7 +10,7 @@ router.get('/notes', (req, res) => {
     .catch((err) => {
         return res.status(500).json(err)
     })
-})
+});
 
 router.post('/notes', (req, res) => {
     store.addNote(req.body)
@@ -20,6 +20,11 @@ router.post('/notes', (req, res) => {
     .catch((err) => {
         return res.status(500).json(err)
     })
+});
+
+// Implementing the Delete method.
+router.delete('/api/notes/:id', (req,res) => {
+
 })
 
 module.exports = router;

@@ -23,9 +23,10 @@ router.post('/notes', (req, res) => {
 });
 
 // Implementing the Delete method.
-router.delete('/api/notes/:id', (req,res) => {
+router.delete('/notes/:id', (req,res) => {
     store.removeNote(req.params.id)
-    .then((id) => { return res.json(note)
+    .then((id) => { 
+        return res.json(id)
     })
     .catch((err) => {
         return res.status(500).json(err)

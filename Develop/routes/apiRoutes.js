@@ -37,38 +37,15 @@ router.delete('/notes/:id', (req,res) => {
     // })
 
     
-let noteId = req.params.id;
-    console.log(`Your delete request for note ${noteId} succeeded!`);
+ let noteId = req.params.id;
     for (let i = 0; i < notes.length; i++) {
         if(noteId === notes[i].id){
-            console.log(i.toString())
-            notes = notes.splice(notes[i], 1)
-            
+            notes.splice(i, 1)
         }
     }
     fs.writeFileSync('./db/db.json', JSON.stringify(notes));
             res.json(notes)
-   // let data = notes.filter(currentNote => {
-   //     // return currentNote.id != noteId;
-   //     
-   //     //let next_Id = 0;
-   //     for (currentNote of notes)  {
-   //         console.log(noteId)
-   //         console.log(next_Id)
-   //         console.log(req.params.id)
-   //         console.log(data)
-   //         console.log(currentNote.id)
-   //     if (currentNote.id === next_Id.toString()) {
-   //         console.log('working?')
-   //     }
-   //     
-   //     //next_Id++;
-   // }
-   // });
-   // console.log(data)
-
-//    fs.writeFileSync('./db/db.json', JSON.stringify(data));
-//    res.json(data);
+   
 
 });
 

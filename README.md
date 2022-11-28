@@ -45,4 +45,4 @@ THEN I am presented with empty fields to enter a new note title and the note’s
   ## Deployment Links:
   Here is a link to my GitHub [repo!](https://github.com/roldanmoncada/Note-Taker-Express)
   
-  And here is the Heroku [link!]()
+  And here is the Heroku [link!](https://note-taker-express-roldan.herokuapp.com/)

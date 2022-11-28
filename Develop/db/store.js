@@ -33,20 +33,21 @@ class Store {
             .then((updatedNotes) => this.write(updatedNotes))
             .then(() => newNote)
     }
-    removeNote(id) {
-        const { uuidv1 } = id
+    //removeNote(id) {
+        
+        // const { uuidv1 } = id
         // read db.json
-        this.getNotes()
-        if (uuidv1 != req.params.id) {
-            throw new Error('cannot delete note that does not exist.')
-        }
-        const newDB = [...notes]
-            return this.write()
-            .then((newDB) => )
+        // this.getNotes()
+        // if (uuidv1 != req.params.id) {
+        //     throw new Error('cannot delete note that does not exist.')
+        // }
+        // const newDB = [...notes]
+        //     return this.write()
+           // .then((newDB) => )
             
         // remove the note with the id from all notes
         // write over the existing db
-    }
+   // }
 }
 
 module.exports = new Store();

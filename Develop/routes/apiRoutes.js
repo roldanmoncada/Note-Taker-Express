@@ -1,7 +1,10 @@
 const router = require('express').Router();
+const fs = require('fs');
 
 const { write } = require('../db/store');
 const store = require('../db/store');
+
+let notes = require('../db/db.json');
 
 router.get('/notes', (req, res) => {
     store.getNotes()
@@ -33,20 +36,39 @@ router.delete('/notes/:id', (req,res) => {
     //     return res.status(500).json(err)
     // })
 
-    let noteId = req.params.id;
-    let next_Id = 0;
-
+    
+let noteId = req.params.id;
     console.log(`Your delete request for note ${noteId} succeeded!`);
-    data = data.filter(currentNote => {
-        return currentNote.id != noteId;
-    });
-    for (currentNote of data)  {
-        currentNote.id = next_Id.toString();
-        next_Id++;
+    for (let i = 0; i < notes.length; i++) {
+        if(noteId === notes[i].id){
+            console.log(i.toString())
+            notes = notes.splice(notes[i], 1)
+            
+        }
     }
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+            res.json(notes)
+   // let data = notes.filter(currentNote => {
+   //     // return currentNote.id != noteId;
+   //     
+   //     //let next_Id = 0;
+   //     for (currentNote of notes)  {
+   //         console.log(noteId)
+   //         console.log(next_Id)
+   //         console.log(req.params.id)
+   //         console.log(data)
+   //         console.log(currentNote.id)
+   //     if (currentNote.id === next_Id.toString()) {
+   //         console.log('working?')
+   //     }
+   //     
+   //     //next_Id++;
+   // }
+   // });
+   // console.log(data)
 
-    fs.writeFileSyn('./db/db.json', JSON.stringify(data));
-    res.json(data);
+//    fs.writeFileSync('./db/db.json', JSON.stringify(data));
+//    res.json(data);
 
 });
 

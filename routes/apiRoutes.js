@@ -27,6 +27,7 @@ router.post('/notes', (req, res) => {
 });
 
 // Implementing the Delete method.
+// This works for the AskBCS assistant that helped me, but it doesn't for me.... He was absolutely stumped and had no ideas as to what it could be. Leaving this up for office hours discussions as well.
 router.delete('/notes/:id', (req,res) => {
     for (let i = 0; i < notes.length; i++) {
         if(req.params.id === notes[i].id){

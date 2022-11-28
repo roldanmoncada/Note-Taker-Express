@@ -49,6 +49,8 @@ class Store {
     //     // remove the note with the id from all notes
     //     // write over the existing db
     // }
+
+    // Everything is finalized and will be pushed but I am leaving this portion in here because I want to talk about it with my instructors during office hours.
 }
 
 module.exports = new Store();

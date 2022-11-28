@@ -28,18 +28,8 @@ router.post('/notes', (req, res) => {
 
 // Implementing the Delete method.
 router.delete('/notes/:id', (req,res) => {
-    // store.removeNote(req.params.id)
-    // .then((id) => { 
-    //     return res.json(id)
-    // })
-    // .catch((err) => {
-    //     return res.status(500).json(err)
-    // })
-
-    
- let noteId = req.params.id;
     for (let i = 0; i < notes.length; i++) {
-        if(noteId === notes[i].id){
+        if(req.params.id === notes[i].id){
             notes.splice(i, 1)
         }
     }
